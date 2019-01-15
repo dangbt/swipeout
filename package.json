@@ -1,6 +1,6 @@
 {
-  "name": "rc-swipeout",
-  "version": "2.0.11",
+  "name": "rc-swipeout-dangbt",
+  "version": "2.0.12",
   "description": "swipe out ui component for react(web and react-native)",
   "keywords": [
     "react",
@@ -9,14 +9,14 @@
     "rc-swipeout",
     "swipe delete"
   ],
-  "homepage": "https://github.com/react-component/swipeout",
-  "author": "rjmuqiang@gmail.com",
+  "homepage": "https://github.com/dangbt/swipeout",
+  "author": "buitandang96@gmail.com",
   "repository": {
     "type": "git",
     "url": "https://github.com/react-component/swipeout.git"
   },
   "bugs": {
-    "url": "https://github.com/react-component/swipeout/issues"
+    "url": "https://github.com/dangbt/swipeout/issues"
   },
   "files": [
     "lib",
