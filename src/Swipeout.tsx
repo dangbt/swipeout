@@ -208,7 +208,17 @@ export default class Swipeout extends React.Component <SwipeoutPropType, any> {
         ref={(el) => this[ref] = el}
       >
         {
-          buttons()
+          buttons.map((btn, i) => (
+            <div key={i}
+              className={`${prefixCls}-btn ${btn.hasOwnProperty('className') ? btn.className : ''}`}
+              style={btn.style}
+              role="button"
+              onClick={(e) => this.onBtnClick(e, btn)}
+            >
+              {/* <div className={`${prefixCls}-btn-text`}>{btn.text || 'Click'}</div> */}
+              {btn.component && btn.component()}
+            </div>
+          ))
         }
       </div>
     ) : null;
@@ -233,12 +243,12 @@ export default class Swipeout extends React.Component <SwipeoutPropType, any> {
       ref: el => this.content = ReactDOM.findDOMNode(el),
     };
 
-    return !disabled ? (
+    return (left!.length || right!.length) && !disabled ? (
       <div className={cls} {...divProps} >
         {/* 保证 body touchStart 后不触发 pan */}
         <div className={`${prefixCls}-cover`} ref={(el) => this.cover = el} />
-        { left && left() }
-        { right && this.renderButtons(right, 'right') }
+        { this.renderButtons(left, 'left') }
+        { this.renderButtons(right, 'right') }
         <Gesture
           onTouchMove={this.onTouchMove}
           onPanStart={this.onPanStart}
