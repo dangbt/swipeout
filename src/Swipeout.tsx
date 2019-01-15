@@ -246,8 +246,8 @@ export default class Swipeout extends React.Component <SwipeoutPropType, any> {
       <div className={cls} {...divProps} >
         {/* 保证 body touchStart 后不触发 pan */}
         <div className={`${prefixCls}-cover`} ref={(el) => this.cover = el} />
-        { this.renderButtons(left, 'left') }
-        { this.renderButtons(right, 'right') }
+        { left && left() }
+        { right && right() }
         <Gesture
           onTouchMove={this.onTouchMove}
           onPanStart={this.onPanStart}
